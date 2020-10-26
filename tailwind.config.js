@@ -9,6 +9,9 @@ module.exports = {
       fill: {
         white: '#fff',
       },
+      backgroundColor: {
+        browny: '#E3E1DC',
+      },
     },
   },
   variants: {},
