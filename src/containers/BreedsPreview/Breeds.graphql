@@ -1,0 +1,7 @@
+query getBreeds {
+  breeds(limit: 4, page: 0) {
+    name
+    id
+    image
+  }
+}
