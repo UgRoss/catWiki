@@ -1,12 +1,13 @@
-import { ApolloServer, gql } from 'apollo-server-micro';
-import { CatAPI } from '../../server/datasources/catAPI';
-import resolvers from '../../server/resolvers/catWiki';
+import { ApolloServer, gql } from "apollo-server-micro";
+import { CatAPI } from "../../server/datasources/catAPI";
+import resolvers from "../../server/resolvers/catWiki";
 // https://www.apollographql.com/docs/apollo-server/data/data-sources/
 
 const typeDefs = gql`
   type Query {
     sayHello: String
     breeds(page: Int, limit: Int): [Breed]
+    breedsSearch(name: String!): [Breed]
   }
 
   type Breed {
@@ -31,4 +32,4 @@ const apolloServer = new ApolloServer({
   resolvers,
 });
 
-export default apolloServer.createHandler({ path: '/api/graphql' });
+export default apolloServer.createHandler({ path: "/api/graphql" });

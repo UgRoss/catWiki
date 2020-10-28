@@ -1,11 +1,13 @@
-import { Layout } from 'components/Layout';
+import { Layout } from '@components/Layout';
 import { BreedsPreview } from '@containers/BreedsPreview/BreedsPreview';
+import {SearchBlock} from '@containers/SearchBlock/SearchBlock';
 
 function HomePage() {
   return (
     <Layout>
-      <div>Welcome to Next.js!</div>
+      <SearchBlock/>
       <BreedsPreview />
+      <div>Welcome to Next.js!</div>
     </Layout>
   );
 }
