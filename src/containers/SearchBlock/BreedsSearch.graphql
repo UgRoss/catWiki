@@ -1,7 +1,7 @@
 query searchBreeds($name: String!) {
-    breedsSearch(name: $name) {
-        name
-        id
-        image
-    }
+  breedsSearch(name: $name) {
+    name
+    id
+    image
+  }
 }
