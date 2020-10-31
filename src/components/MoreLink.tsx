@@ -7,7 +7,10 @@ interface MoreLinkProps {
 
 export const MoreLink = ({ text = 'See More', to }: MoreLinkProps) => {
   return (
-    <a href={to} className="text-lg uppercase font-bold text-gray-600 hover:text-black transition-all duration-300">
+    <a
+      href={to}
+      className="text-lg uppercase font-bold text-gray-600 hover:text-black transition-all duration-300"
+    >
       {text} {'→'}
     </a>
   );

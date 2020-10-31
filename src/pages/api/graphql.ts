@@ -1,22 +1,19 @@
-import { ApolloServer, gql } from "apollo-server-micro";
-import { CatAPI } from "../../server/datasources/catAPI";
-import resolvers from "../../server/resolvers/catWiki";
-// https://www.apollographql.com/docs/apollo-server/data/data-sources/
+import { ApolloServer } from 'apollo-server-micro';
+import dataSources from '@server/graphql/datasources';
+import typeDefs from '@server/graphql/schema';
+import resolvers from '@server/graphql/resolvers';
+import { getMongoConnection } from '@server/database/getConnection';
 
-const typeDefs = gql`
-  type Query {
-    sayHello: String
-    breeds(page: Int, limit: Int): [Breed]
-    breedsSearch(name: String!): [Breed]
-  }
+const apolloServer = new ApolloServer({
+  typeDefs,
+  dataSources: () => dataSources,
+  context: async () => {
+    const mongoConnection = await getMongoConnection(process.env.MONGODB_URI);
 
-  type Breed {
-    id: ID!
-    name: String!
-    origin: String!
-    image: String
-  }
-`;
+    return { mongoConnection };
+  },
+  resolvers,
+});
 
 export const config = {
   api: {
@@ -24,12 +21,4 @@ export const config = {
   },
 };
 
-const apolloServer = new ApolloServer({
-  typeDefs,
-  dataSources: () => ({
-    catAPI: new CatAPI(),
-  }),
-  resolvers,
-});
-
-export default apolloServer.createHandler({ path: "/api/graphql" });
+export default apolloServer.createHandler({ path: '/api/graphql' });

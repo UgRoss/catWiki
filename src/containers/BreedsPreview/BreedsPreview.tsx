@@ -1,8 +1,8 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import QUERY_GET_BREEDS from "./Breeds.graphql";
-import { BreedCard } from "./components/BreedCard/BreedCard";
-import { MoreLink } from "@components/MoreLink";
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import QUERY_GET_BREEDS from './Breeds.graphql';
+import { BreedCard } from './components/BreedCard/BreedCard';
+import { MoreLink } from '@components/MoreLink';
 
 export const BreedsPreview = () => {
   const { loading, error, data } = useQuery(QUERY_GET_BREEDS);
@@ -15,9 +15,7 @@ export const BreedsPreview = () => {
         <div className="w-12 bg-black rounded h-1" />
       </div>
       <div className="grid grid-cols-2 gap-8 mb-12 items-end">
-        <h3 className="text-5xl font-bold leading-tight">
-          66+ Breeds For you to discover
-        </h3>
+        <h3 className="text-5xl font-bold leading-tight">66+ Breeds For you to discover</h3>
         <div className="text-right">
           <MoreLink to="#" />
         </div>
