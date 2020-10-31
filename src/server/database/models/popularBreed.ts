@@ -1,9 +1,11 @@
 import { Schema, Model, Connection, Document } from 'mongoose';
 
 export interface IPopularBreed extends Document {
-    title: string;
-    content: string;
-    date: Date;
+    _id: string;
+    name: string;
+    img_url: string;
+    description: string;
+    search_count: number;
 }
 
 export const popularBreedSchema = new Schema({

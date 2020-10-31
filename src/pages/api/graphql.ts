@@ -1,25 +1,19 @@
-import { ApolloServer, gql } from 'apollo-server-micro';
-import { CatAPI } from '../../server/graphql/datasources/catAPI';
-import resolvers from '../../server/graphql/resolvers/catWiki';
-import { typeDefs } from '../../server/graphql/schema';
-import { connectToDatabase } from '../../server/api/mongoMiddleware';
+import { ApolloServer } from 'apollo-server-micro';
+import dataSources from '@server/graphql/datasources';
+import typeDefs from '@server/graphql/schema';
+import resolvers from '@server/graphql/resolvers';
+import { getMongoConnection } from '@server/database/getConnection';
 // https://www.apollographql.com/docs/apollo-server/data/data-sources/
+// https://akhilaariyachandra.com/create-a-serverless-api-with-typescript-graphql-and-mongodb
 
 const apolloServer = new ApolloServer({
     typeDefs,
-    dataSources: () => ({
-        catAPI: new CatAPI(),
-    }),
+    dataSources: () => dataSources,
     context: async () => {
-        let mongoConnection;
-        try {
-            mongoConnection = await connectToDatabase(process.env.MONGODB_URI);
-        } catch (err) {
-            console.log(
-                '--->error while connecting via graphql context (db)',
-                err
-            );
-        }
+        const mongoConnection = await getMongoConnection(
+            process.env.MONGODB_URI
+        );
+
         return { mongoConnection };
     },
     resolvers,

@@ -1,11 +1,19 @@
 import { gql } from 'apollo-server-micro';
 
-export const typeDefs = gql`
+export const schema = gql`
     type Query {
-        sayHello: String
-        breeds(page: Int, limit: Int): [Breed]
-        breedsSearch(name: String!): [Breed]
-        popularBreeds: [PopularBreed]
+        getBreeds(page: Int, limit: Int): [Breed]
+        findBreed(name: String!): [Breed]
+        getPopularBreeds: [PopularBreed]
+    }
+
+    type Mutation {
+        createPopularBreed(
+            id: String!
+            name: String!
+            description: String!
+            img_url: String!
+        ): PopularBreed
     }
 
     type PopularBreed {
@@ -23,3 +31,5 @@ export const typeDefs = gql`
         image: String
     }
 `;
+
+export default schema;
