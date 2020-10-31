@@ -1,14 +1,8 @@
-import React from "react";
-import SearchIcon from "../assets/icons/search-24px.svg";
+import React from 'react';
+import SearchIcon from '../assets/icons/search-24px.svg';
 
-export const SearchInput = ({
-  className = "",
-  suggestions,
-  onSuggestionSelect,
-  ...props
-}) => {
-  const areSuggestionsAvailable =
-    Array.isArray(suggestions) && suggestions.length > 0;
+export const SearchInput = ({ className = '', suggestions, onSuggestionSelect, ...props }) => {
+  const areSuggestionsAvailable = Array.isArray(suggestions) && suggestions.length > 0;
 
   return (
     <div className={`relative ${className}`}>
@@ -23,10 +17,7 @@ export const SearchInput = ({
 
         {/* 🔎 Search Icon */}
         <div className="absolute right-0 top-0 mt-3 mr-4 text-purple-lighter">
-          <SearchIcon
-            className="fill-black cursor-pointer"
-            onClick={() => alert("hello")}
-          />
+          <SearchIcon className="fill-black cursor-pointer" onClick={() => alert('hello')} />
         </div>
       </div>
 

@@ -7,22 +7,20 @@ import { getMongoConnection } from '@server/database/getConnection';
 // https://akhilaariyachandra.com/create-a-serverless-api-with-typescript-graphql-and-mongodb
 
 const apolloServer = new ApolloServer({
-    typeDefs,
-    dataSources: () => dataSources,
-    context: async () => {
-        const mongoConnection = await getMongoConnection(
-            process.env.MONGODB_URI
-        );
+  typeDefs,
+  dataSources: () => dataSources,
+  context: async () => {
+    const mongoConnection = await getMongoConnection(process.env.MONGODB_URI);
 
-        return { mongoConnection };
-    },
-    resolvers,
+    return { mongoConnection };
+  },
+  resolvers,
 });
 
 export const config = {
-    api: {
-        bodyParser: false,
-    },
+  api: {
+    bodyParser: false,
+  },
 };
 
 export default apolloServer.createHandler({ path: '/api/graphql' });

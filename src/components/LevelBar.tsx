@@ -7,7 +7,9 @@ interface LevelBarProps {
 export const LevelBar: React.FC<LevelBarProps> = ({ level }) => {
   const levelsClassNames = new Array(5)
     .fill('bg-black rounded-lg h-2')
-    .map((className, idx) => (idx + 1 <= level ? `${className} bg-black` : `${className} bg-gray-400`));
+    .map((className, idx) =>
+      idx + 1 <= level ? `${className} bg-black` : `${className} bg-gray-400`
+    );
 
   return (
     <div className="grid grid-cols-5 gap-2">

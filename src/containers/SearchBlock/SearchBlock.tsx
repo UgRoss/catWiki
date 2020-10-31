@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useLazyQuery } from "@apollo/client";
-import { debounce } from "lodash";
-import CatwikiLogoWhite from "../../assets/CatwikiLogoWhite.svg";
-import { SearchInput } from "@components/SearchInput";
-import QUERY_BREEDS_SEARCH from "./BreedsSearch.graphql";
+import React, { useState } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import { debounce } from 'lodash';
+import CatwikiLogoWhite from '../../assets/CatwikiLogoWhite.svg';
+import { SearchInput } from '@components/SearchInput';
+import QUERY_BREEDS_SEARCH from './BreedsSearch.graphql';
 
 export const SearchBlock = () => {
   const [searchResult, setSearchResult] = useState([]);
@@ -28,7 +28,7 @@ export const SearchBlock = () => {
   };
 
   const handleSuggestionSelect = (item) => {
-    console.log("item", item);
+    console.log('item', item);
   };
 
   return (
