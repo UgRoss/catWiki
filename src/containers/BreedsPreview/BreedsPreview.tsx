@@ -20,10 +20,10 @@ export const BreedsPreview = () => {
           <MoreLink to="#" />
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-12">
         {data &&
-          data?.breeds.map(({ name, id, image }) => (
-            <BreedCard name={name} image={image} key={id} />
+          data?.getPopularBreeds.map(({ name, _id, img_url }) => (
+            <BreedCard name={name} image={img_url} key={_id} />
           ))}
       </div>
     </div>

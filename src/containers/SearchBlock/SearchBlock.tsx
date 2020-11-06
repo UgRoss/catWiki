@@ -10,7 +10,7 @@ export const SearchBlock = () => {
   const [findBreeds, { loading, data }] = useLazyQuery(QUERY_BREEDS_SEARCH, {
     onCompleted: (data) => {
       console.log('called??');
-      const result = data?.breedsSearch.map(({ name }) => name) || [];
+      const result = data?.findBreed.map(({ name }) => name) || [];
       setSearchResult(result);
     },
   });

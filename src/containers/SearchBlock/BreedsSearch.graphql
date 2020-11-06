@@ -1,5 +1,5 @@
 query searchBreeds($name: String!) {
-  breedsSearch(name: $name) {
+  findBreed(name: $name) {
     name
     id
     image
