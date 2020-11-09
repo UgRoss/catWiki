@@ -1,13 +1,6 @@
 import React from 'react';
 
-interface ArticlePreviewProps {
-  title: string;
-  excerpt: string;
-  url: string;
-  img: string;
-}
-
-export const ArticlePreview = () => {
+export const WhyHaveCatSection = () => {
   return (
     <article className="px-5 py-16 flex items-center">
       <div className="mr-5">
@@ -35,4 +28,4 @@ export const ArticlePreview = () => {
   );
 };
 
-export default ArticlePreview;
+export default WhyHaveCatSection;

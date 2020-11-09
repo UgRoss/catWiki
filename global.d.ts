@@ -9,3 +9,5 @@ declare module '*.graphql' {
 
   export = Schema;
 }
+
+declare module '*.png';
