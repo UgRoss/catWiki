@@ -1,6 +1,5 @@
-import { Layout } from 'components/Layout';
-import { LevelBar } from 'components/LevelBar';
-import { BreedsPreview } from '@containers/BreedsPreview/BreedsPreview';
+import { Layout } from '@components/Layout';
+import { LevelBar } from '@components/LevelBar';
 
 function CatPage() {
   return (
@@ -9,7 +8,6 @@ function CatPage() {
       <div style={{ maxWidth: '240px' }}>
         <LevelBar level={4} />
       </div>
-      <BreedsPreview />
     </Layout>
   );
 }

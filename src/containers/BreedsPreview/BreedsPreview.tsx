@@ -17,7 +17,7 @@ export const BreedsPreview = () => {
       <div className="grid grid-cols-2 gap-8 mb-12 items-end">
         <h3 className="text-5xl font-bold leading-tight">66+ Breeds For you to discover</h3>
         <div className="text-right">
-          <MoreLink to="#" />
+          <MoreLink to="/top-breeds" />
         </div>
       </div>
       <div className="grid grid-cols-4 gap-12">

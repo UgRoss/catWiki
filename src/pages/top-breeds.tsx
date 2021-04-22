@@ -1,14 +1,16 @@
+import React from 'react';
 import { Layout } from '@components/Layout';
+import { TopBreeds } from '@containers/TopBreeds/TopBreeds';
 
-function HomePage() {
+function TopBreedsPage() {
   return (
     <Layout>
-      <div className="mt-10">
-        <h1 className="text-4xl font-bold">Top 10 most searched breeds</h1>
-        <div>Welcome to Next.js!</div>
+      <div className="container mt-10 px-4">
+        <h1 className="text-4xl font-bold mb-20">Top 10 most searched breeds</h1>
+        <TopBreeds />
       </div>
     </Layout>
   );
 }
 
-export default HomePage;
+export default TopBreedsPage;

@@ -1,0 +1,9 @@
+query getPopularBreeds {
+  getPopularBreeds {
+    _id
+    name
+    description
+    img_url
+    search_count
+  }
+}
