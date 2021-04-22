@@ -1,10 +1,22 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { BreedPreview } from '@components/BreedPreview';
+import { BreedPreview } from './components/BreedPreview';
+import { BreedPreviewSkeleton } from './components/BreedPreviewSkeleton';
 import TOP_BREEDS_QUERY from './TopBreeds.graphql';
 
 export const TopBreeds = () => {
-  const { data } = useQuery(TOP_BREEDS_QUERY);
+  const { data, loading } = useQuery(TOP_BREEDS_QUERY);
+  const numOfSkeletonsToShow = 3;
+
+  if (loading) {
+    return (
+      <div>
+        <BreedPreviewSkeleton />
+        <BreedPreviewSkeleton />
+        <BreedPreviewSkeleton />
+      </div>
+    );
+  }
 
   return (
     <div>
